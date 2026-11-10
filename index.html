@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El mirador escondido · Guía de rutas</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="reportes.js" defer></script>
+  <script src="avance-pruebas.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="apoyo.js" defer></script>
+  <script src="../expedicion/comprobar-vista.js" defer></script>
+</head>
+<body>
+  <main class="pagina">
+    <header class="portada">
+      <p class="etiqueta">Parque Bruma Verde · Guía de rutas</p>
+      <h1>El mirador<br>escondido<span>.</span></h1>
+      <p class="bajada">Consulta el reporte del parque y elige un camino para abrir la postal del mirador.</p>
+      <div class="elegir-reporte">
+        <label for="reporte-activo">Reporte del parque</label>
+        <select id="reporte-activo">
+          <option value="A">A · Llovió</option>
+          <option value="B">B · Teleférico en mantenimiento</option>
+          <option value="C">C · Lluvia y mantenimiento</option>
+        </select>
+        <p class="insignia" id="nombre-reporte">Reporte pendiente</p>
+      </div>
+    </header>
+
+    <form id="formulario-ruta" aria-describedby="mensaje">
+      <fieldset>
+        <legend>¿Por dónde vas a subir?</legend>
+        <div class="rutas">
+          <label class="tarjeta-ruta">
+            <input type="radio" name="ruta" value="sendero">
+            <span class="numero">01</span>
+            <span class="nombre-ruta">Sendero a pie</span>
+            <span class="estado-ruta" data-estado-ruta="sendero">Reporte pendiente</span>
+          </label>
+
+          <!-- PARADA 1: agrega la tarjeta del Teleférico.
+               Su value y su data-estado-ruta deben ser teleferico. -->
+          <label class="tarjeta-ruta">
+            <input type="radio" name="ruta" value="teleferico">
+            <span class="numero">02</span>
+            <span class="nombre-ruta">Teleférico</span>
+            <span class="estado-ruta" data-estado-ruta="teleferico">Reporte pendiente</span>
+          </label>
+        </div>
+      </fieldset>
+      <button type="submit">Confirmar mi ruta</button>
+      <p class="mensaje" id="mensaje" role="status" aria-live="polite"></p>
+    </form>
+
+    <figure id="postal" class="postal" hidden>
+      <img src="assets/postal-mirador.png" alt="Una vista de montañas verdes y un valle entre nubes desde el mirador">
+      <figcaption>
+        <p class="etiqueta">Postal desbloqueada</p>
+        <h2>Llegaste al mirador.</h2>
+        <p>Postal del Parque Bruma Verde.</p>
+      </figcaption>
+    </figure>
+    <footer>Parque ficticio · Aventura de desarrollo web · Generation Colombia</footer>
+  </main>
+</body>
+</html>
